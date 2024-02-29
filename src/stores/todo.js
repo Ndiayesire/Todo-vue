@@ -25,9 +25,9 @@ export const useTodoStore = defineStore('todo', {
   },
 
   actions: {
-    addTodo(name) {
+    addTodo(name, time) {
       const id = Math.floor(Math.random() * 100);
-      this.todos.push({ id, name: name, isFinished: false, isProgress: false });
+      this.todos.push({ id, name: name, time: time, isFinished: false, isProgress: false });
     },
 
     removeTodo(id) {    

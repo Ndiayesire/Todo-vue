@@ -1,6 +1,7 @@
 <script setup>
 import Card from '@/components/card.vue'
 import Task from '@/components/task.vue'
+import Reminder from '@/components/reminder.vue'
 import { reactive } from 'vue';
 import { useTodoStore } from '@/stores/todo';
 import { storeToRefs } from 'pinia';
@@ -10,13 +11,16 @@ const { todos } = storeToRefs(todoStore);
 
 const state = reactive({
   task: '',
+  time: ''
 });
 
 const add = () => {
   todoStore.addTodo(
     state.task,
+    state.time
   );
   state.task=''
+  state.time='jj/mm/aaaa'
 }
 
 const deleteOne = (id) => {
@@ -41,15 +45,21 @@ const updateProgress = (id) => {
         </div>
         <div class="mt-8 bg-white rounded-md flex-col justify-centeer items-center space-x-4 px-4 py-2">
           <div class="flex justify-between items-center space-x-4 px-4 py-2 w-full">
-            <input v-model="state.task" type="text" class="flex-1 px-4 py-2 rounded-md outline-none border border-gray-100 text-sm focus:border-b-2 focus:border-b-green-100" placeholder="Ajouter une nouvelle tâche" />
+            <input v-model="state.task" type="text" class="flex-1 px-4 py-2 rounded-md outline-none border border-gray-100 text-sm focus:border-b-2 focus:border-b-green-100 text-gray-400 font-semibold" placeholder="Ajouter une nouvelle tâche" />
+            <input v-model="state.time" type="date" class="flex-1 px-4 py-2 rounded-md outline-none border border-gray-100 text-sm focus:border-b-2 focus:border-b-green-100 text-gray-400 font-semibold" placeholder="Ajouter une nouvelle tâche" />
             <button class="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-bold" @click="add">Creer</button>
           </div>
           <div class="p-4">
-           <Task :todos="todos" @deleteTodo="deleteOne" @updateTodo="updateStatus" @updateStatus="updateProgress"/>
+            <Task :todos="todos" @deleteTodo="deleteOne" @updateTodo="updateStatus" @updateStatus="updateProgress"/>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-8">
+          <div class="bg-white rounded-md flex-col justify-centeer items-center space-x-4 px-4 py-2">
+            <Reminder/>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-s
+

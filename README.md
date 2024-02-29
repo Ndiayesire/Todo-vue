@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+## Home Page
+
+![Image](https://github.com/Ndiayesire/Todo-vue/blob/master/src/assets/img/result.png)

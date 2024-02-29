@@ -3,7 +3,8 @@
       <li class="flex items-center justify-between" v-for="todo in props.todos" :key="todo.id">
         <div class="flex items-center space-x-2">
             <input v-if="todo.isFinished === false" type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" :checked="todo.isProgress" @change="updateTaskProgress(todo.id)">
-          <p class="text-gray-500 text-medium font-semibold text-sm line-clamp-1 truncate ..." :class="{ 'line-through': todo.isFinished }">{{ todo.name }}</p>
+          <p class="text-gray-500 text-medium text-sm line-clamp-1 truncate ..." :class="{ 'line-through': todo.isFinished }">{{ todo.name }}</p>
+          <p class="text-yellow-500 text-medium font-semibold text-sm line-clamp-1" >{{ todo.time }}</p>
         </div>
         <div class="flex items-center justify-between space-x-8">
           <i class="ri-delete-bin-line text-red-500 font-semibold cursor-pointer" @click="deleteTask(todo.id)"></i>
@@ -12,9 +13,9 @@
           <label :for="'toggle-' + todo.id" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
         </div> 
         </div>
-       
       </li>
     </ul>
+    <p class="text-gray-400 text-medium font-semibold text-sm line-clamp-1" v-if="props.todos.length <= 0">Vous etes à jour 👋</p>     
   </template>
   
   <script setup>
