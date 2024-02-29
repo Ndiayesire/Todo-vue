@@ -47,7 +47,7 @@ const updateProgress = (id) => {
           <div class="flex justify-between items-center space-x-4 px-4 py-2 w-full">
             <input v-model="state.task" type="text" class="flex-1 px-4 py-2 rounded-md outline-none border border-gray-100 text-sm focus:border-b-2 focus:border-b-green-100 text-gray-400 font-semibold" placeholder="Ajouter une nouvelle tâche" />
             <input v-model="state.time" type="date" class="flex-1 px-4 py-2 rounded-md outline-none border border-gray-100 text-sm focus:border-b-2 focus:border-b-green-100 text-gray-400 font-semibold" placeholder="Ajouter une nouvelle tâche" />
-            <button class="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-bold" @click="add">Creer</button>
+            <button class="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-bold" @click="add">Creer</button>
           </div>
           <div class="p-4">
             <Task :todos="todos" @deleteTodo="deleteOne" @updateTodo="updateStatus" @updateStatus="updateProgress"/>

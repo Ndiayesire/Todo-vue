@@ -8,10 +8,11 @@
         </div>
         <div class="flex items-center justify-between space-x-8">
           <i class="ri-delete-bin-line text-red-500 font-semibold cursor-pointer" @click="deleteTask(todo.id)"></i>
-          <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-          <input type="checkbox" name="toggle" :id="'toggle-' + todo.id" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" :checked="todo.isFinished" @change="updateTask(todo.id)">
-          <label :for="'toggle-' + todo.id" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
-        </div> 
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" name="toggle" :id="'toggle-' + todo.id" class="sr-only peer" :checked="todo.isFinished" @change="updateTask(todo.id)">
+            <div class="group peer after:content-['😑'] peer-checked:after:content-['😍'] ring-0 bg-gray-200 rounded-full outline-none duration-300 after:duration-300 w-10 h-5 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-4 after:w-4 after:top-0.5 after:left-0.5 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-6 peer-hover:after:scale-95 peer-checked:after:rotate-0">
+            </div>
+          </label>
         </div>
       </li>
     </ul>
